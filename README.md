@@ -15,6 +15,10 @@
 
 ###### DevLog
 
+v0.1
+1. Добавлены модели Contact, Network, Product
+2. Отображение моделей User, Contact, Network, Product в админке
+
 _v0_
 1. Установлены библиотеки Django, psycopg2, python-dotenv, flake8, djangorestframework
 2. Все чувствительные данные засекречены
