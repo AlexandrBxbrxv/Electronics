@@ -1,4 +1,5 @@
-from django.contrib import admin
+from django.contrib import admin, messages
+from django.utils.translation import ngettext
 
 from electronics.models import Contact, Network, Product
 
@@ -17,6 +18,22 @@ class NetworkAdmin(admin.ModelAdmin):
 
     list_display = ('id', 'owner', 'contacts', 'supplier', 'title', 'debt', 'creation_time',)
     search_fields = ('owner', 'title',)
+
+    actions = ['clear_debt']
+
+    @admin.action(description='Clear debt from selected networks')
+    def clear_debt(self, request, queryset):
+        updated = queryset.update(debt=0.00)
+        self.message_user(
+            request,
+            ngettext(
+                "%d debt cleared to zero",
+                "%d debts cleared to zero",
+                updated,
+            )
+            % updated,
+            messages.SUCCESS,
+        )
 
 
 @admin.register(Product)
