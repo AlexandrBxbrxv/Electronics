@@ -25,6 +25,7 @@ class NetworkSerializer(serializers.ModelSerializer):
     """Сериализатор для модели Network."""
 
     products = ProductSerializer(source='product_network', many=True)
+    contacts = ContactSerializer()
     level = serializers.SerializerMethodField()
 
     class Meta:
