@@ -1,4 +1,6 @@
 from django.contrib import admin, messages
+from django.urls import reverse
+from django.utils.html import format_html
 from django.utils.translation import ngettext
 
 from electronics.models import Contact, Network, Product
@@ -9,15 +11,14 @@ class ContactAdmin(admin.ModelAdmin):
     """Для отображения модели Contact в админке."""
 
     list_display = ('id', 'owner', 'email', 'country', 'city', 'street', 'house_number',)
-    search_fields = ('owner', 'email', 'country',)
+    search_fields = ('owner__email', 'email', 'country',)
 
 
-@admin.register(Network)
 class NetworkAdmin(admin.ModelAdmin):
     """Для отображения модели Network в админке."""
 
-    list_display = ('id', 'owner', 'contacts', 'supplier', 'title', 'debt', 'creation_time',)
-    search_fields = ('owner', 'title',)
+    list_display = ('id', 'owner', 'contacts', 'supplier_link', 'title', 'debt', 'creation_time',)
+    search_fields = ('contacts__city',)
 
     actions = ['clear_debt']
 
@@ -35,10 +36,22 @@ class NetworkAdmin(admin.ModelAdmin):
             messages.SUCCESS,
         )
 
+    def supplier_link(self, obj):
+        """Создает ссылку на поставщика."""
+        if obj.supplier:
+            url = reverse("admin:electronics_network_change", args=[obj.supplier.id])
+            return format_html('<a href="{}">{}</a>', url, obj.supplier.title)
+        return "-"
+
+    supplier_link.short_description = "Поставщик"
+
+
+admin.site.register(Network, NetworkAdmin)
+
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     """Для отображения модели Product в админке."""
 
     list_display = ('id', 'owner', 'network', 'title', 'model', 'launch_date',)
-    search_fields = ('owner', 'network', 'title',)
+    search_fields = ('owner__email', 'network', 'title',)
