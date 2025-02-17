@@ -30,7 +30,7 @@ class NetworkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Network
         fields = "__all__"
-        read_only_fields = ("owner",)
+        read_only_fields = ("owner", "debt")
 
     @staticmethod
     def get_level(network) -> int:
