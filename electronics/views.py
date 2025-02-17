@@ -12,10 +12,11 @@ class NetworkCreateAPIView(generics.CreateAPIView):
     queryset = Network.objects.all()
 
     def perform_create(self, serializer):
-        """Записывает создателя сети."""
+        """Записывает создателя сети и округляет задолженность до двух цифр после запятой."""
         user = self.request.user
         network = serializer.save()
         network.owner = user
+        network.debt = round(network.debt, 2)
         network.save()
 
 
