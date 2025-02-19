@@ -1,4 +1,5 @@
 from rest_framework import generics
+from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
 
 from electronics.models import Network
@@ -12,10 +13,11 @@ class NetworkCreateAPIView(generics.CreateAPIView):
     queryset = Network.objects.all()
 
     def perform_create(self, serializer):
-        """Записывает создателя сети."""
+        """Записывает создателя сети и округляет задолженность до двух цифр после запятой."""
         user = self.request.user
         network = serializer.save()
         network.owner = user
+        network.debt = round(network.debt, 2)
         network.save()
 
 
@@ -23,6 +25,9 @@ class NetworkListAPIView(generics.ListAPIView):
     """Контроллер для просмотра сетей."""
     serializer_class = NetworkSerializer
     queryset = Network.objects.all()
+
+    filter_backends = [SearchFilter]
+    search_fields = ['contacts__country']
 
 
 class NetworkRetrieveAPIView(generics.RetrieveAPIView):

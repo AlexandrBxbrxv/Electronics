@@ -25,12 +25,13 @@ class NetworkSerializer(serializers.ModelSerializer):
     """Сериализатор для модели Network."""
 
     products = ProductSerializer(source='product_network', many=True)
+    contacts = ContactSerializer()
     level = serializers.SerializerMethodField()
 
     class Meta:
         model = Network
         fields = "__all__"
-        read_only_fields = ("owner",)
+        read_only_fields = ("owner", "debt")
 
     @staticmethod
     def get_level(network) -> int:
