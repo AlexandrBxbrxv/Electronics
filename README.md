@@ -15,6 +15,11 @@
 
 ###### DevLog
 
+v0.2
+1. Для NetworkSerializer запретил изменять задолженность, добавил вывод Contact в Json
+2. Для NetworkAdmin добавлен action на обнуление задолженности, ссылка на поставщика, фильтр по названию города
+3. Для NetworkListAPIView добавлен фильтр по стране
+
 v0.1
 1. Добавлены модели Contact, Network, Product
 2. Отображение моделей User, Contact, Network, Product в админке
