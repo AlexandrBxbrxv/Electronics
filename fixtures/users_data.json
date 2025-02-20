@@ -1,0 +1,36 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$aShk2EkGZqMUkNFtNDOwXD$P95aN9T7tW3gGIBQHrzTU9dJ9ObY1IV+OUa+2wLD3Pw=",
+      "last_login": "2025-02-19T23:44:41.181Z",
+      "is_superuser": true,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-02-14T07:14:15.675Z",
+      "email": "admin@bk.ru",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$48MB3KQhYh70jKIuR0Sxst$gKIkUTe85vH6bBe24BU2LvhXCqvCX3ZgDX3kr4FZhZg=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-02-16T01:02:17.535Z",
+      "email": "user@bk.ru",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

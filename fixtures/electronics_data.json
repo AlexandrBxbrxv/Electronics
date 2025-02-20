@@ -1,0 +1,144 @@
+[
+  {
+    "model": "electronics.contact",
+    "pk": 2,
+    "fields": {
+      "owner": 1,
+      "email": "zavod@mail.ru",
+      "country": "Россия",
+      "city": "Москва",
+      "street": "Ленина",
+      "house_number": 1
+    }
+  },
+  {
+    "model": "electronics.contact",
+    "pk": 3,
+    "fields": {
+      "owner": 1,
+      "email": "company@mail.ru",
+      "country": "Россия",
+      "city": "Екатеринбург",
+      "street": "Ленина",
+      "house_number": 1
+    }
+  },
+  {
+    "model": "electronics.contact",
+    "pk": 4,
+    "fields": {
+      "owner": 1,
+      "email": "shop@mail.ru",
+      "country": "Россия",
+      "city": "Екатеринбург",
+      "street": "Карла Маркса",
+      "house_number": 2
+    }
+  },
+  {
+    "model": "electronics.contact",
+    "pk": 5,
+    "fields": {
+      "owner": 1,
+      "email": "shop2@mail.ru",
+      "country": "Россия",
+      "city": "Екатеринбург",
+      "street": "Ленина",
+      "house_number": 11
+    }
+  },
+  {
+    "model": "electronics.contact",
+    "pk": 6,
+    "fields": {
+      "owner": 1,
+      "email": "product@mail.com",
+      "country": "USA",
+      "city": "Albuquerque",
+      "street": "Negra Arroyo Lane",
+      "house_number": 308
+    }
+  },
+  {
+    "model": "electronics.network",
+    "pk": 2,
+    "fields": {
+      "owner": 1,
+      "contacts": 2,
+      "supplier": null,
+      "title": "Завод электроники",
+      "debt": 0.0,
+      "creation_time": "2025-02-14"
+    }
+  },
+  {
+    "model": "electronics.network",
+    "pk": 3,
+    "fields": {
+      "owner": 1,
+      "contacts": 3,
+      "supplier": 2,
+      "title": "Компания распространитель электроники",
+      "debt": 0.0,
+      "creation_time": "2025-02-14"
+    }
+  },
+  {
+    "model": "electronics.network",
+    "pk": 4,
+    "fields": {
+      "owner": 1,
+      "contacts": 4,
+      "supplier": 3,
+      "title": "Магазин продажи электроники",
+      "debt": 0.0,
+      "creation_time": "2025-02-17"
+    }
+  },
+  {
+    "model": "electronics.network",
+    "pk": 5,
+    "fields": {
+      "owner": 1,
+      "contacts": 5,
+      "supplier": 2,
+      "title": "Магазин продавец электроники",
+      "debt": 0.0,
+      "creation_time": "2025-02-17"
+    }
+  },
+  {
+    "model": "electronics.network",
+    "pk": 6,
+    "fields": {
+      "owner": 1,
+      "contacts": 6,
+      "supplier": null,
+      "title": "Company",
+      "debt": 0.0,
+      "creation_time": "2025-02-20"
+    }
+  },
+  {
+    "model": "electronics.product",
+    "pk": 1,
+    "fields": {
+      "owner": 1,
+      "network": 4,
+      "title": "item",
+      "model": "ver0",
+      "launch_date": "2025-02-16"
+    }
+  },
+  {
+    "model": "electronics.product",
+    "pk": 2,
+    "fields": {
+      "owner": 1,
+      "network": 4,
+      "title": "item2",
+      "model": "ver1",
+      "launch_date": "2025-02-16"
+    }
+  }
+]
