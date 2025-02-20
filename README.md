@@ -10,6 +10,7 @@
 
 ### Команды
 
+* Заполнить БД: `python manage.py fill_db`
 * Создать пользователя: `python manage.py create_user`
 * Создать суперпользователя: `python manage.py create_admin`
 
