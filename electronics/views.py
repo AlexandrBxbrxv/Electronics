@@ -3,20 +3,18 @@ from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
 
 from electronics.models import Network
-from electronics.serializers import NetworkSerializer
+from electronics.serializers import NetworkSerializer, CreateNetworkSerializer
 from users.permissions import IsOwner
 
 
 class NetworkCreateAPIView(generics.CreateAPIView):
     """Контроллер для создания сети."""
-    serializer_class = NetworkSerializer
+    serializer_class = CreateNetworkSerializer
     queryset = Network.objects.all()
 
     def perform_create(self, serializer):
-        """Записывает создателя сети и округляет задолженность до двух цифр после запятой."""
-        user = self.request.user
+        """Округляет задолженность до двух цифр после запятой."""
         network = serializer.save()
-        network.owner = user
         network.debt = round(network.debt, 2)
         network.save()
 
